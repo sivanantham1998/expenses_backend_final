@@ -10,5 +10,5 @@ app.use(express.json())
 app.use(cookie())
 app.use(cors({credentials:true,origin:'https://expenses-tracker-siva.netlify.app'}))
 app.use("/api",user)
-const port=process.env.PORT || 100
-app.listen(port,console.log("server running"))
+
+app.listen(100,console.log("server running"))

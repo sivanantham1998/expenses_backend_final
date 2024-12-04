@@ -1,6 +1,6 @@
 const userSchema = require("../models/userModel");
 const Plan = require("../models/planModel");
-let bcrypt=require("bcrypt")
+let bcrypt=require("bcryptjs")
 let jwt=require("jsonwebtoken")
 exports.registerUser=async(req,res,next)=>{
     let {username,password}=req.body;
@@ -8,7 +8,7 @@ exports.registerUser=async(req,res,next)=>{
         let saltRound=10
         let secretKey="DT7ApgiSxr"
         let exipres=36000   
-        let hashCode=await bcrypt.hash(password,saltRound)
+        let hashCode=await bcrypt.hash(password,saltRound);
         let newUser=new userSchema({username,password:hashCode})
         let token=await jwt.sign({id:newUser._id},secretKey,{expiresIn:exipres})
         await newUser.save()

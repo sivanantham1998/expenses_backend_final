@@ -8,6 +8,6 @@ dotenv.config()
 // middleware
 app.use(express.json())
 app.use(cookie())
-app.use(cors({credentials:true,origin:'http://localhost:3000'}))
+app.use(cors({credentials:true,origin:'https://expenses-tracker-siva.netlify.app'}))
 app.use("/api",user)
 app.listen(100,console.log("server running"))
